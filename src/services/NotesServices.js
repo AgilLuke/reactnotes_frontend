@@ -6,4 +6,7 @@ const getAll=()=>{
 const create=(data)=>{
     return httpClient.post("/notes",data);
 }
-export default {getAll,create};
+const get=id=>{
+    return httpClient.get(`/notes/${id}`);
+}
+export default {getAll,create,get};

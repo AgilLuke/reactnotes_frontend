@@ -7,7 +7,8 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import AddNote from "./AddNote";
-import { Container } from "@mui/material";
+import { Container,Link } from "@mui/material";
+import httpClient from '../http-common'
 
 const NotesList=()=>{
     const [notes,setNotes]=useState([]);
@@ -41,7 +42,7 @@ const NotesList=()=>{
                         </Typography>
                     </CardContent>
                     <CardActions style={{backgroundColor:'white'}}>
-                        <Button size="small" disabled={true}>Learn More</Button>
+                        <Link href={`/notes/${note.id}`}>Learn More</Link>
                     </CardActions>
                 </Card>
             ))

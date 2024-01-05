@@ -10,6 +10,7 @@ import Tab from '@mui/material/Tab';
 import TabPanel from '@mui/lab/TabPanel';
 import NotFound from './NotFound';
 import AddNote from './AddNote';
+import { Button } from '@mui/material';
 
 const LandingPage = () => {
     const tabLists=[{name:'Home'},{name:'Notes'},{name:'New'}];
@@ -22,19 +23,17 @@ const LandingPage = () => {
     <React.Fragment>
       <CssBaseline />
         <Container maxWidth="lg">
-            <Box sx={{ bgcolor: '#cfe8fc', height: '100%' }}>
-            <TabContext value={value}>
-            <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                <TabList>
-                    <Tab label="Home" value={0} onClick={()=>handleChange(0)}/>
-                    <Tab label="Notes" value={1} onClick={()=>handleChange(1)}/>
-                    <Tab label="Add Note" value={2} onClick={()=>handleChange(2)}/>
-                </TabList>
+            <Box sx={{ bgcolor: '#cfe8fc', height: '100%' }}>                
+                <TabContext value={value}>
+                <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                    <TabList>
+                        <Tab label="Home" value={0} onClick={()=>handleChange(0)}/>
+                        <Tab label="Notes" value={1} onClick={()=>handleChange(1)}/>
+                    </TabList>
                 </Box>
-                <TabPanel value={0}><NotFound/></TabPanel>
-                <TabPanel value={1}><NotesList/></TabPanel>
-                <TabPanel value={2}><AddNote/></TabPanel>
-            </TabContext>
+                    <TabPanel value={0}><NotFound/></TabPanel>
+                    <TabPanel value={1}><NotesList/></TabPanel>
+                </TabContext>
             </Box>
         </Container>
     </React.Fragment>

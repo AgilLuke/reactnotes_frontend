@@ -9,14 +9,16 @@ import Button from '@mui/material/Button';
 import AddNote from "./AddNote";
 import { Container,Link } from "@mui/material";
 import httpClient from '../http-common'
+import { useNavigate } from "react-router-dom";
 
 const NotesList=()=>{
+    const navigate=useNavigate();
     const [notes,setNotes]=useState([]);
     // const [dialogStat,setDialogStat]=useState(false);
-    // const handleAddNote=()=>{
-    //     console.log('action test')
-    //     setDialogStat(true);
-    // }
+    const handleAddNote=()=>{
+        console.log('action test');
+        navigate("/notes/add")
+    }
     useEffect(()=>{
         NotesServices.getAll()
             .then(response=>{
@@ -31,7 +33,7 @@ const NotesList=()=>{
         <div>
             <Container>
                 <Typography variant="h3" gutterBottom>List of Notes</Typography>
-                {/* <Button onClick={()=>handleAddNote()}>Add</Button> */}
+                <Button onClick={()=>handleAddNote()}>Add Note</Button>
             </Container>
             {notes.length>0 ? notes.map(note=>(
                 <Card key={note.id} style={{marginBottom:5}}>
